@@ -42,6 +42,7 @@ const canciones = [
 
 let i = 0;
 try {
+  if (location.search.indexOf('reset') > -1) localStorage.removeItem('n');
   i = (Number(localStorage.getItem('n')) || 0) % canciones.length;
   localStorage.setItem('n', i + 1);
 } catch (e) {
