@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>·</title>
+<style>html{background:#F2E6CE}</style>
+<script>
+/* ---------------------------------------------------------------
+   Pega aquí las canciones, EN ORDEN.
+   La primera es la que suena en el primer escaneo.
+   Formato: https://open.spotify.com/track/ID   (sin el ?si=...)
+   --------------------------------------------------------------- */
+const canciones = [
+  'https://open.spotify.com/track/PEGA_AQUI_ME_PIERDO_CONTIGO',
+  'https://open.spotify.com/track/PEGA_AQUI_LA_SEGUNDA',
+  'https://open.spotify.com/track/PEGA_AQUI_LA_TERCERA'
+];
+
+let i = 0;
+try {
+  i = (Number(localStorage.getItem('n')) || 0) % canciones.length;
+  localStorage.setItem('n', i + 1);
+} catch (e) {
+  i = Math.floor(Math.random() * canciones.length);
+}
+location.replace(canciones[i]);
+</script>
+</head>
+<body></body>
+</html>
